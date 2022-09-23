@@ -1,9 +1,12 @@
 package com.takumiyoshikawa.ipldashboard.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Team {
@@ -13,6 +16,13 @@ public class Team {
     private String teamName;
     private long totalMatch;
     private long totalWin;
+
+    @Transient
+    private List<Match> matches;
+
+    public Team() {
+
+    }
 
     public Team(String teamName, long totalMatch) {
         this.teamName = teamName;
@@ -51,10 +61,16 @@ public class Team {
         this.totalWin = totalWin;
     }
 
+    public List<Match> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
+
     @Override
     public String toString() {
         return "Team [teamName=" + teamName + ", totalMatch=" + totalMatch + ", totalWin=" + totalWin + "]";
     }
-
-    
 }
