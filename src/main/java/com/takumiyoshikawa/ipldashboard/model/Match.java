@@ -14,7 +14,7 @@ public class Match {
     private LocalDate date;
     private String playerOfMatch;
     private String venue;
-    private String neutral_venue;
+    private String neutralVenue;
     private String team1;
     private String team2;
     private String tossWinner;
@@ -45,8 +45,8 @@ public class Match {
         return venue;
     }
 
-    public String getNeutral_venue() {
-        return neutral_venue;
+    public String getNeutralVenue() {
+        return neutralVenue;
     }
 
     public String getTeam1() {
@@ -105,8 +105,8 @@ public class Match {
         this.venue = venue;
     }
 
-    public void setNeutral_venue(String neutral_venue) {
-        this.neutral_venue = neutral_venue;
+    public void setNeutralVenue(String neutralVenue) {
+        this.neutralVenue = neutralVenue;
     }
 
     public void setTeam1(String team1) {
