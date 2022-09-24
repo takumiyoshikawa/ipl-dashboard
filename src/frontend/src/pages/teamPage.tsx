@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { MatchDetailCard } from "../components/MatchDetailCard";
 import { MatchSmallCard } from "../components/MatchSmallCard";
 
@@ -30,24 +31,23 @@ type teamResponse = {
 }
 
 export const TeamPage = () => {
-
     const [team, setTeam] = useState<teamResponse>();
-
+    const { teamName } = useParams()
     useEffect(() => {
         const fetchMatches = async () => {
-            const response = fetch('http://localhost:8080/team/Delhi%20Capitals');
+            const response = fetch(`http://localhost:8080/team/${teamName}`);
             const data: teamResponse = await (await response).json();
             setTeam(data);
         };
 
         fetchMatches();
-    }, []);
+    }, [teamName]);
 
     return (
         <div className="TeamPage">
             <h1> {team && team.teamName}</h1>
-            {team && <MatchDetailCard match={team.matches[0]} />}
-            {team && team.matches.slice(1).map((match) => (<MatchSmallCard match={match} />))}
+            {team && <MatchDetailCard teamName={team.teamName} match={team.matches[0]} />}
+            {team && team.matches.slice(1).map((match) => (<MatchSmallCard teamName={team.teamName} match={match} />))}
         </div>
     )
 }
