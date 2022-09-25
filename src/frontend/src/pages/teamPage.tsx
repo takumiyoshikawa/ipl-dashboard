@@ -24,8 +24,7 @@ export type match = {
     umpire2: string;
 }
 
-
-type teamResponse = {
+export type teamResponse = {
     id: number;
     teamName: string;
     totalMatch: number;
