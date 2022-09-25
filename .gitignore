@@ -23,3 +23,6 @@
 hs_err_pid*
 
 target/*
+
+#build 成果物
+src/main/resources/public/*

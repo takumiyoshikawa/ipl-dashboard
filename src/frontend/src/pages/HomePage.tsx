@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { TeamTile } from "../components/Teamtile";
+import { TeamTile } from "../components/TeamTile";
 import { teamResponse } from "./teamPage";
 import './HomePage.scss';
 
@@ -9,7 +9,7 @@ export const HomePage = () => {
 
     useEffect(() => {
         const fetchAllTeams = async () => {
-            const response = fetch('http://localhost:8080/team');
+            const response = fetch('/team');
             const data: teamResponse[] = await (await response).json();
             setTeams(data);
         };
@@ -25,7 +25,7 @@ export const HomePage = () => {
                 </h1>
             </div>
             <div className="team-grid">
-                {teams && teams.map(team => <TeamTile teamName={team.teamName} />)}
+                {teams && teams.map(team => <TeamTile key={team.id} teamName={team.teamName} />)}
             </div>
         </div>
     )

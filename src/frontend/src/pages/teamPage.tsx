@@ -37,7 +37,7 @@ export const TeamPage = () => {
     const { teamName } = useParams()
     useEffect(() => {
         const fetchMatches = async () => {
-            const response = fetch(`http://localhost:8080/team/${teamName}`);
+            const response = fetch(`/team/${teamName}`);
             const data: teamResponse = await (await response).json();
             setTeam(data);
         };
