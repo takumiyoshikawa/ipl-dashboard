@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import {
   BrowserRouter,
   Route,
@@ -10,13 +10,15 @@ import { MatchPage } from './pages/matchPage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<h1>hello world</h1>} />
-        <Route path='team/:teamName' element={<TeamPage />} />
-        <Route path='team/:teamName/matches/:year' element={<MatchPage />} />
-      </Routes>
-    </BrowserRouter>
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<h1>hello world</h1>} />
+          <Route path='team/:teamName' element={<TeamPage />} />
+          <Route path='team/:teamName/matches/:year' element={<MatchPage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 
